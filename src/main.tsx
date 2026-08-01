@@ -120,6 +120,50 @@ function RouteSyncer() {
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-
-
-[FILE_TOO_LARGE]: The combined read_files output exceeded the 100,000 character hard limit. This file was truncated after 4,619 characters. Read it separately or use code_search for the relevant section.
+    <RootErrorBoundary>
+      <ToolbarErrorBoundary>
+        <VlyToolbar />
+      </ToolbarErrorBoundary>
+      <ConvexAuthProvider client={convex}>
+        <BrowserRouter>
+          <RouteSyncer />
+          <Suspense fallback={<RouteLoading />}>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route
+                path="/auth"
+                element={<AuthPage redirectAfterAuth="/app" />}
+              />
+              <Route
+                path="/app"
+                element={
+                  <RequireAuth>
+                    <AppShell />
+                  </RequireAuth>
+                }
+              >
+                <Route index element={<Dashboard />} />
+                <Route path="written" element={<Written />} />
+                <Route path="ssb" element={<Ssb />} />
+                <Route path="communication" element={<Communication />} />
+                <Route path="olq" element={<Olq />} />
+                <Route path="fitness" element={<Fitness />} />
+                <Route path="medical" element={<Medical />} />
+                <Route path="diet" element={<Diet />} />
+                <Route path="habits" element={<Habits />} />
+                <Route path="mock" element={<MockTests />} />
+                <Route path="analytics" element={<Analytics />} />
+                <Route path="resources" element={<Resources />} />
+                <Route path="coach" element={<Coach />} />
+                <Route path="roadmap" element={<Roadmap />} />
+              </Route>
+              <Route path="/dashboard" element={<Navigate to="/app" replace />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+        <Toaster />
+      </ConvexAuthProvider>
+    </RootErrorBoundary>
+  </StrictMode>,
+);
