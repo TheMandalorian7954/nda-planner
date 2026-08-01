@@ -15,7 +15,7 @@ This project uses the following tech stack:
 
 All relevant files live in the 'src' directory.
 
-Use bun for the package manager.
+Use npm for the package manager (npm ships with Node.js).
 
 ## Setup
 
