@@ -1,0 +1,390 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+/* DO NOT CHANGE */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-hand: "Caveat", "Comic Sans MS", cursive;
+  --font-serif-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+}
+
+/* ---------- Notebook theme tokens ---------- */
+:root {
+  --radius: 0.5rem;
+
+  /* paper & ink */
+  --background: oklch(0.972 0.011 88);
+  --foreground: oklch(0.29 0.028 265);
+  --card: oklch(0.99 0.006 88);
+  --card-foreground: oklch(0.29 0.028 265);
+  --popover: oklch(0.99 0.006 88);
+  --popover-foreground: oklch(0.29 0.028 265);
+
+  /* pencil palette */
+  --primary: oklch(0.49 0.19 27);
+  --primary-foreground: oklch(0.985 0.01 88);
+  --secondary: oklch(0.94 0.015 88);
+  --secondary-foreground: oklch(0.32 0.03 265);
+  --muted: oklch(0.945 0.012 88);
+  --muted-foreground: oklch(0.5 0.028 265);
+  --accent: oklch(0.55 0.15 245);
+  --accent-foreground: oklch(0.99 0.006 88);
+  --destructive: oklch(0.56 0.21 26);
+
+  --border: oklch(0.86 0.02 88);
+  --input: oklch(0.86 0.02 88);
+  --ring: oklch(0.49 0.19 27);
+
+  --chart-1: oklch(0.49 0.19 27); /* red pencil */
+  --chart-2: oklch(0.55 0.15 245); /* blue pencil */
+  --chart-3: oklch(0.52 0.14 155); /* green pencil */
+  --chart-4: oklch(0.7 0.15 75); /* amber pencil */
+  --chart-5: oklch(0.55 0.16 315); /* violet pencil */
+
+  --sidebar: oklch(0.955 0.014 88);
+  --sidebar-foreground: oklch(0.32 0.03 265);
+  --sidebar-primary: oklch(0.49 0.19 27);
+  --sidebar-primary-foreground: oklch(0.985 0.01 88);
+  --sidebar-accent: oklch(0.9 0.03 88);
+  --sidebar-accent-foreground: oklch(0.32 0.03 265);
+  --sidebar-border: oklch(0.86 0.02 88);
+  --sidebar-ring: oklch(0.49 0.19 27);
+
+  /* notebook extras */
+  --rule-line: oklch(0.8 0.022 88 / 0.55);
+  --rule-line-strong: oklch(0.75 0.025 88 / 0.7);
+  --margin-red: oklch(0.58 0.21 28 / 0.75);
+  --grain-dot: oklch(0.45 0.02 265 / 0.045);
+  --highlighter: oklch(0.9 0.13 95 / 0.6);
+  --paper-ink-soft: oklch(0.5 0.028 265 / 0.55);
+}
+
+.dark {
+  --background: oklch(0.2 0.02 260);
+  --foreground: oklch(0.93 0.012 88);
+  --card: oklch(0.24 0.022 260);
+  --card-foreground: oklch(0.93 0.012 88);
+  --popover: oklch(0.24 0.022 260);
+  --popover-foreground: oklch(0.93 0.012 88);
+
+  --primary: oklch(0.7 0.17 27);
+  --primary-foreground: oklch(0.2 0.02 260);
+  --secondary: oklch(0.29 0.024 260);
+  --secondary-foreground: oklch(0.93 0.012 88);
+  --muted: oklch(0.29 0.024 260);
+  --muted-foreground: oklch(0.7 0.02 88);
+  --accent: oklch(0.65 0.15 245);
+  --accent-foreground: oklch(0.2 0.02 260);
+  --destructive: oklch(0.68 0.19 26);
+
+  --border: oklch(0.36 0.028 260);
+  --input: oklch(0.36 0.028 260);
+  --ring: oklch(0.7 0.17 27);
+
+  --chart-1: oklch(0.7 0.17 27);
+  --chart-2: oklch(0.65 0.15 245);
+  --chart-3: oklch(0.65 0.13 155);
+  --chart-4: oklch(0.78 0.15 75);
+  --chart-5: oklch(0.68 0.15 315);
+
+  --sidebar: oklch(0.225 0.022 260);
+  --sidebar-foreground: oklch(0.93 0.012 88);
+  --sidebar-primary: oklch(0.7 0.17 27);
+  --sidebar-primary-foreground: oklch(0.2 0.02 260);
+  --sidebar-accent: oklch(0.3 0.026 260);
+  --sidebar-accent-foreground: oklch(0.93 0.012 88);
+  --sidebar-border: oklch(0.36 0.028 260);
+  --sidebar-ring: oklch(0.7 0.17 27);
+
+  --rule-line: oklch(0.85 0.015 88 / 0.1);
+  --rule-line-strong: oklch(0.85 0.015 88 / 0.16);
+  --margin-red: oklch(0.72 0.18 28 / 0.6);
+  --grain-dot: oklch(1 0 0 / 0.035);
+  --highlighter: oklch(0.85 0.12 95 / 0.28);
+  --paper-ink-soft: oklch(0.8 0.015 88 / 0.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background-image: radial-gradient(var(--grain-dot) 1px, transparent 1.3px);
+    background-size: 4px 4px;
+  }
+  button:not([disabled]),
+  [role="button"]:not([disabled]) {
+    cursor: pointer;
+  }
+}
+
+/* ---------- Notebook utilities ---------- */
+
+/* Solid ruled-paper sheet */
+.paper-sheet {
+  background-color: var(--card);
+  background-image:
+    radial-gradient(var(--grain-dot) 1px, transparent 1.3px),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 27px,
+      var(--rule-line) 27px,
+      var(--rule-line) 28px
+    );
+  background-size:
+    4px 4px,
+    100% 28px;
+  background-position:
+    0 0,
+    0 4px;
+}
+
+/* Ruled lines only (for cards / content areas) */
+.ruled {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 23px,
+    var(--rule-line) 23px,
+    var(--rule-line) 24px
+  );
+}
+
+/* Red margin line + punch-hole notebook card */
+.notebook-card {
+  position: relative;
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  border-radius: calc(var(--radius) + 2px);
+  box-shadow:
+    0 1px 2px oklch(0.3 0.02 265 / 0.06),
+    0 12px 32px -18px oklch(0.3 0.02 265 / 0.25);
+}
+.notebook-card.with-margin {
+  padding-left: 2.6rem;
+}
+.notebook-card.with-margin::before {
+  content: "";
+  position: absolute;
+  left: 1.8rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 1.5px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0,
+    var(--margin-red) 8%,
+    var(--margin-red) 92%,
+    transparent 100%
+  );
+  opacity: 0.7;
+}
+
+/* Handwriting */
+.font-hand {
+  font-family: var(--font-hand);
+  letter-spacing: 0.01em;
+}
+.font-display {
+  font-family: var(--font-serif-display);
+}
+
+/* Highlighter effect */
+.hi {
+  background: linear-gradient(
+    180deg,
+    transparent 8%,
+    var(--highlighter) 8%,
+    var(--highlighter) 88%,
+    transparent 88%
+  );
+  padding: 0 0.1em;
+  border-radius: 2px;
+}
+
+/* Rubber stamp */
+.stamp {
+  display: inline-block;
+  font-family: var(--font-serif-display);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  font-size: 0.6rem;
+  color: var(--chart-1);
+  border: 2px solid color-mix(in oklch, var(--chart-1) 65%, transparent);
+  border-radius: 4px;
+  padding: 0.12rem 0.5rem;
+  transform: rotate(-3deg);
+  opacity: 0.85;
+  mask-image: radial-gradient(circle at 30% 40%, black 92%, transparent 98%);
+  -webkit-mask-image: radial-gradient(circle at 30% 40%, black 92%, transparent 98%);
+}
+
+/* Washi tape */
+.tape {
+  position: absolute;
+  top: -0.55rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2.5deg);
+  width: 5.5rem;
+  height: 1.25rem;
+  border-radius: 2px;
+  background: linear-gradient(
+    100deg,
+    color-mix(in oklch, var(--chart-4) 55%, transparent),
+    color-mix(in oklch, var(--chart-4) 35%, transparent) 45%,
+    color-mix(in oklch, var(--chart-4) 55%, transparent)
+  );
+  box-shadow: 0 1px 2px oklch(0.3 0.02 265 / 0.15);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* Pencil margin note */
+.margin-note {
+  font-family: var(--font-hand);
+  font-size: 0.95rem;
+  color: var(--accent);
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+
+/* Hand-drawn underline */
+.underlines {
+  background-image: linear-gradient(
+    180deg,
+    transparent 62%,
+    color-mix(in oklch, var(--chart-1) 40%, transparent) 62%,
+    color-mix(in oklch, var(--chart-1) 40%, transparent) 66%,
+    transparent 66%
+  );
+}
+
+/* Soft scribble circle for emphasis (SVG-style via border-radius trick) */
+.scribble-ring {
+  border: 2px dashed color-mix(in oklch, var(--accent) 55%, transparent);
+  border-radius: 9999px;
+  transform: rotate(-1.5deg);
+}
+
+/* Sidebar nav item with pencil underline on hover */
+.nav-link {
+  position: relative;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 100%;
+  bottom: 0.35rem;
+  height: 2px;
+  background: var(--chart-1);
+  opacity: 0;
+  transition: right 0.25s ease, opacity 0.2s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  right: 0.75rem;
+  opacity: 0.6;
+}
+
+/* Ink-fade entrance for cards */
+@keyframes ink-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.ink-in {
+  animation: ink-in 0.45s ease both;
+}
+
+/* Paper edge (subtle deckle) */
+.paper-edge {
+  position: relative;
+}
+.paper-edge::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    transparent 2%,
+    var(--rule-line) 6%,
+    transparent 9%,
+    transparent 22%,
+    var(--rule-line) 27%,
+    transparent 31%,
+    transparent 48%,
+    var(--rule-line) 52%,
+    transparent 57%,
+    transparent 75%,
+    var(--rule-line) 80%,
+    transparent 85%
+  );
+  opacity: 0.5;
+}
+
+/* Ticker-style countdown underline */
+@keyframes pulse-ink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+.pulse-ink {
+  animation: pulse-ink 2.4s ease-in-out infinite;
+}
