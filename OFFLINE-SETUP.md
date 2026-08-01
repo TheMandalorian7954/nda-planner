@@ -16,7 +16,7 @@ your computer.
    ```bash
    npm install
    ```
-3. That's it. This also bundles the fonts locally, so no Google Fonts CDN needed.
+3. That's it. The app loads zero fonts from the internet — it uses system fonts, so no Google Fonts CDN is needed.
 
 ## Start the app (offline from here on)
 
@@ -68,9 +68,10 @@ commands — all your progress is still there.
 
 ## Facts about this build
 
-- **Fonts**: Caveat + Source Serif 4 are bundled in the repo (`@fontsource`) — no CDN calls.
+- **Fonts**: zero font requests — the app uses system fonts (Georgia / Comic Sans MS fallbacks). No CDN calls, works fully offline.
 - **Database**: local Convex backend, data in the project's `.convex/` folder.
 - **Auth**: anonymous/guest sign-in is fully local; email OTP requires internet.
+- **Local backend defaults**: auth and the app auto-fall-back to `http://127.0.0.1:3210` when the cloud env vars aren't set, so a fresh local setup just works.
 - **No telemetry/monitoring calls that matter**: the optional VLY monitoring URL
   only fires on runtime errors and fails silently offline.
 
